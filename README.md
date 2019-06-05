@@ -40,7 +40,6 @@ In this project, I took a baseline installation of a Linux distribution on a vir
 
 ## Create user `grader`
 1. Create new user by running: `sudo adduser grader`
-   - password: grader
 2. Install `finger` to verify that the user was created
    - `sudo apt install finger`
    - `finger grader`
@@ -51,7 +50,6 @@ In this project, I took a baseline installation of a Linux distribution on a vir
 3. Create SSH key for `grader`
    - On local machine, run `ssh-keygen`
    - filename: grader_key
-   - password: grader_key
 4. Back on VM
    - Switch to user: `su - grader`
    - Make SSH dir: `mkdir .ssh`
