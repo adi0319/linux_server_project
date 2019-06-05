@@ -1,13 +1,12 @@
 # Linux Server Configuration Project
 In this project, I took a baseline installation of a Linux distribution on a virtual machine and prepared it to host web applications. This included installing updates, securing it from attack vectors, installing/configuring web and database servers.
 
-# IP Address & Port
+## IP Address & Port
 54.184.241.170, port 2200
-http://ec2-54-184-241-170.compute-1.amazonaws.com/
 
-# Instructions
+## Instructions
 
-# Create Instance and SSH
+## Create Instance and SSH
 1. Create an instance
 2. Download the key
 3. Rename key, change its permission, and move to `.ssh` directory
@@ -17,11 +16,11 @@ http://ec2-54-184-241-170.compute-1.amazonaws.com/
 4. SSH into the VM
    - `ssh ubuntu@54.184.241.170 -i /Users/adi_pulgarin/.ssh/lightsail-udacity.pem`
 
-# Update Existing Packages
+## Update Existing Packages
 1. `sudo apt-get update`
 2. `sudo apt-get upgrade`
 
-# Secure Server
+## Secure Server
 1. Open port 2200 for SSH
    - `sudo vi /etc/ssh/sshd_config`
    - line 5, 22 -> 2200 and save file
@@ -39,7 +38,7 @@ http://ec2-54-184-241-170.compute-1.amazonaws.com/
    - `sudo ufw enable`
    - `sudo ufw status`, should now be active
 
-# Create user `grader`
+## Create user `grader`
 1. Create new user by running: `sudo adduser grader`
    - password: grader
 2. Install `finger` to verify that the user was created
@@ -66,18 +65,18 @@ http://ec2-54-184-241-170.compute-1.amazonaws.com/
 7. Verify changes by logging in as `grader`
    - `ssh grader@54.184.241.170 -p 2200 -i ~/.ssh/grader_key`
 
-# Configure Timezone
+## Configure Timezone
 1. `sudo dpkg-reconfigure tzdata`
 2. Select option 'None of the Above'
 3. Select option 'UTC'
 4. Verify timezone is set to UTC by using the `date` command
 
-# Install Apache and Python mod_wsgi
+## Install Apache and Python mod_wsgi
 1. `sudo apt-get install apache2`
 2. `sudo apt-get install libapache2-mod-wsgi`
 3. Verify by going to `http://54.184.241.170` where the default Apache page should appear
 
-# Install and Configure PostgreSQL
+## Install and Configure PostgreSQL
 1. `sudo apt-get install postgresql`
 2. Default is to not allow remote connections, verify here: `sudo cat /etc/postgresql/9.5/main/pg_hba.conf`
 3. User `postgres` was created when downloading package, switch to this user: `sudo su - postgres`
@@ -91,10 +90,10 @@ http://ec2-54-184-241-170.compute-1.amazonaws.com/
 9. Quit PostgreSQL: `\q`
 10. Exit from user `postgres` using `exit`
 
-# Install Git
+## Install Git
 1. `sudo apt-get install git`
 
-# Set up Item Catalog Project
+## Set up Item Catalog Project
 1. Change directory: `cd /var/www`
 2. Create directory for project: `mkdir project` and `cd` into it
 3. Clone the Item Catalog project into this directory
@@ -160,5 +159,5 @@ http://ec2-54-184-241-170.compute-1.amazonaws.com/
 
 Note: Items were added manually as login is not currently working.
 
-## Author
+# Author
 Adilene Pulgarin
