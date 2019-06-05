@@ -2,7 +2,7 @@
 In this project, I took a baseline installation of a Linux distribution on a virtual machine and prepared it to host web applications. This included installing updates, securing it from attack vectors, installing/configuring web and database servers.
 
 ## IP Address & Port
-54.184.241.170, port 2200
+54.148.232.95, port 2200
 
 ## Instructions
 
@@ -14,7 +14,7 @@ In this project, I took a baseline installation of a Linux distribution on a vir
    - `chmod 400 lightsail-udacity.pem`
    - `mv lightsail-udacity.pem ~/.ssh/`
 4. SSH into the VM
-   - `ssh ubuntu@54.184.241.170 -i ~/.ssh/lightsail-udacity.pem`
+   - `ssh ubuntu@54.148.232.95 -i ~/.ssh/lightsail-udacity.pem`
 
 ## Update Existing Packages
 1. `sudo apt-get update`
@@ -27,7 +27,7 @@ In this project, I took a baseline installation of a Linux distribution on a vir
 2. Reload SSH using `sudo service ssh restart`
 3. Back on Amazon Lighsail page, update ports by removing port 22 and adding port 2200 under the Firewall section
 4. Confirm SSH port works
-   - `ssh ubuntu@54.184.241.170 -p 2200 -i ~/.ssh/lightsail-udacity.pem`
+   - `ssh ubuntu@54.148.232.95 -p 2200 -i ~/.ssh/lightsail-udacity.pem`
 5. Configure UFW, allow port 2200 for SSH, port 80 for HTTP, and port 123 for NTP
    - `sudo ufw status`, should be inactive
    - `sudo ufw allow 2200/tcp`
@@ -61,7 +61,7 @@ In this project, I took a baseline installation of a Linux distribution on a vir
    - `chmod 644 .ssh/authorized_keys`
 6. Restart SSH: `sudo service ssh restart`
 7. Verify changes by logging in as `grader`
-   - `ssh grader@54.184.241.170 -p 2200 -i ~/.ssh/grader_key`
+   - `ssh grader@54.148.232.95 -p 2200 -i ~/.ssh/grader_key`
 
 ## Configure Timezone
 1. `sudo dpkg-reconfigure tzdata`
@@ -72,7 +72,7 @@ In this project, I took a baseline installation of a Linux distribution on a vir
 ## Install Apache and Python mod_wsgi
 1. `sudo apt-get install apache2`
 2. `sudo apt-get install libapache2-mod-wsgi`
-3. Verify by going to `http://54.184.241.170` where the default Apache page should appear
+3. Verify by going to `http://54.148.232.95` where the default Apache page should appear
 
 ## Install and Configure PostgreSQL
 1. `sudo apt-get install postgresql`
@@ -130,8 +130,8 @@ In this project, I took a baseline installation of a Linux distribution on a vir
     - Enter the following into this new file:
     ```
     <VirtualHost *:80>
-    	ServerName 54.184.241.170
-      ServerAlias 54.184.241.170.xip.io
+    	ServerName 54.148.232.95
+      ServerAlias 54.148.232.95.xip.io
     	ServerAdmin ap739s@att.com
     	WSGIScriptAlias / /var/www/project/items-project.wsgi
     	<Directory /var/www/project/items_project/>
@@ -153,7 +153,7 @@ In this project, I took a baseline installation of a Linux distribution on a vir
     - `apachectl configtest`: should return `Syntax OK`
 13. Enable the virtual host: `sudo a2ensite project`
 14. Restart Apache: `sudo service apache2 restart`
-15. Head to `http://54.184.241.170` to items category project app
+15. Head to `http://54.148.232.95` to items category project app
 
 Note: Items were added manually as login is not currently working.
 
