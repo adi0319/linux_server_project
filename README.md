@@ -14,7 +14,7 @@ In this project, I took a baseline installation of a Linux distribution on a vir
    - `chmod 400 lightsail-udacity.pem`
    - `mv lightsail-udacity.pem ~/.ssh/`
 4. SSH into the VM
-   - `ssh ubuntu@54.184.241.170 -i /Users/adi_pulgarin/.ssh/lightsail-udacity.pem`
+   - `ssh ubuntu@54.184.241.170 -i ~/.ssh/lightsail-udacity.pem`
 
 ## Update Existing Packages
 1. `sudo apt-get update`
