@@ -24,6 +24,7 @@ In this project, I took a baseline installation of a Linux distribution on a vir
 1. Open port 2200 for SSH
    - `sudo vi /etc/ssh/sshd_config`
    - line 5, 22 -> 2200 and save file
+   - line 28, set `PermitRootLogin` to `no` so root user cannot be used
 2. Reload SSH using `sudo service ssh restart`
 3. Back on Amazon Lighsail page, update ports by removing port 22 and adding port 2200 under the Firewall section
 4. Confirm SSH port works
@@ -156,6 +157,11 @@ In this project, I took a baseline installation of a Linux distribution on a vir
 15. Head to `http://54.148.232.95` to items category project app
 
 Note: Items were added manually as login is not currently working.
+
+# Resources Used
+- [Udacity Knowledge Board](https://knowledge.udacity.com/?nanodegree=5d0abf4a-496f-11e8-b517-e31790f491a9&project=9bf8bb0e-83f2-11e8-a3f4-6b225c520ab1)
+- [PostgreSQL Create User](https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e)
+- [Timezone Update](https://www.digitalocean.com/community/questions/how-to-change-the-timezone-on-ubuntu-14)
 
 # Author
 Adilene Pulgarin
